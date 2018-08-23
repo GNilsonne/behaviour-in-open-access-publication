@@ -1,0 +1,276 @@
+---
+title           : "Compliance/Behaviour in open access publication preregistration"
+shorttitle      : "Open access preregistration"
+date            : "`r Sys.setlocale('LC_TIME', 'C'); format(Sys.time(), '%d\\\\. %B %Y')`"
+
+author: 
+  - name        : Henrik Danielsson
+    affiliation : "1"
+  - name        : Gustav Nilsonne
+    affiliation : "2,3"
+  - name        : Lovisa Österlund
+    affiliation : "1"
+  - name        : Johanna Nählinder
+    affiliation : "1"
+  - name        : David Lawrence
+    affiliation : "1"
+
+affiliation:
+  - id          : 1
+    institution : Linköping University
+  - id          : 2
+    institution : Stockholm University 
+  - id          : 3
+    institution : Karolinska Institutet 
+
+startyear: 2009
+endyear: 2017
+
+output: prereg::cos_prereg
+---
+
+# Study Information
+
+## Title
+<!-- Provide the working title of your study. It may be the same title that you submit for publication of your final manuscript, but it is not a requirement. -->
+
+`r rmarkdown::metadata$title`
+
+
+## Research questions
+<!-- Please list each research question included in this study. -->
+How does a requirement from the fundig agency to publish articles open access affect the degree of open access publication?
+
+
+
+
+
+## Hypotheses
+<!-- For each of the research questions listed in the previous section, provide one or multiple specific and testable hypotheses. Please state if the hypotheses are directional or non-directional. If directional, state the direction. A predicted effect is also appropriate here. Providing a short name for each hypothesis (e.g. H1, H2, etc.) will later allow you to easily relate your hypotheses to statistical tests in your analysis plan. -->
+H1: There will be 100% open access articles or close to that, i.e., the requirement will be followed.
+H2a:
+H2b:
+H2c:
+
+H3a: There will be no significant change in degree of open access articles compared to other articles from the same first authors
+H3b: There will be no significant change in degree of open access articles compared to other articles from the same affiliations
+H3c: There will be no significant change in degree of open access articles compared to other articles from the same time period
+
+H4: there will be lower degree of open access articles compared to...
+
+
+
+# Sampling Plan
+<!-- Please describe how you plan to collect samples, as well as the number of samples you plan to collect and your rationale for this decision. Keep in mind that the data described in this section should be the actual data used for analysis, so if you are using a subset of a larger dataset, please describe the subset that will actually be used in your study. -->
+We will collect data from different sources:
+We will collect bibliometric information and funding information from web of science via their API. 
+
+We will collect open access status of published articles from Unpaywall via the r package roadoi (insert reference).
+
+Data will be a sample with the following characteristics:
+Only articles with a Swedish affilliation for the first author will be collected. This is because every funding agency has different requirements and to make the project feasible we limit ourselves to Swedish funding agencies where we know when different open access requirements were introduced.
+Swedish affiliation is defined by Sweden" or "Sverige" in the affiliation information for the article.
+The link between articles and funding information is the article doi.
+The funding information is free text. We will identify relevant funders with regular expression. 
+We will search for diarienummer too .....
+The larger grant agencies in Sweden who has introduced an open access requiremnet are the following:
+Vetenskapsrådet - The Swedish research agency staring from grants awarded 
+Forte - ....
+Formas - .....
+Riksbankens Jubileumsfond - .....
+
+Data will be collected for the following publication years `r rmarkdown::metadata$startyear` to `r rmarkdown::metadata$endyear`. 
+
+
+## Existing data
+<!-- Preregistration is designed to make clear the distinction between confirmatory tests, specified prior to seeing the data, and exploratory analyses conducted after observing the data. Therefore, creating a research plan in which existing data will be used presents unique challenges. Please select the description that best describes your situation. Please do not hesitate to contact the Center for Open Science if you have questions about how to answer this questions (prereg@cos.io). -->
+
+
+**Registration prior to analysis of the data**. As of the date of submission, the data exist and you have accessed it, though no analysis has been conducted related to the research plan (including calculation of summary statistics). A common situation for this scenario when a large dataset exists that is used for many different studies over time, or when a data set is randomly split into a sample for exploratory analyses, and the other section of data is reserved for later confirmatory data analysis.
+
+
+
+
+
+## Explanation of existing data
+<!-- If you indicate that you will be using some data that already exist in this study, please describe the steps you have taken to assure that you are unaware of any patterns or summary statistics in the data. This may include an explanation of how access to the data has been limited, who has observed the data, or how you have avoided observing any analysis of the specific data you will use in your study. The purpose of this question is to assure that the line between confirmatory and exploratory analysis is clear. -->
+
+All data is available, but  the combination of data from different sources is not. 
+To avoid harking, one of the authors searched the first 200 entries from web of science to use as pilot data. 
+On the pilot data, two other authors could optimize the regular expression to find different spellings of the grant agencies. 
+Pilot data was also used to make sure that the coverage of funding information was good in Crosref.
+
+
+
+## Data collection procedures
+<!-- Please describe the process by which you will collect your data. If you are using human subjects, this should include the population from which you obtain subjects, recruitment efforts, payment for participation, how subjects will be selected for eligibility from the initial pool (e.g. inclusion and exclusion rules), and your study timeline. For studies that don't include human subjects, include information about how you will collect samples, duration of data gathering efforts, source or location of samples, or batch numbers you will use. -->
+
+Move something from above?
+
+
+## Sample size
+<!-- Describe the sample size of your study. How many units will be analyzed in the study? This could be the number of people, birds, classrooms, plots, interactions, or countries included. If the units are not individuals, then describe the size requirements for each unit. If you are using a clustered or multilevel design, how many units are you collecting at each level of the analysis? -->
+
+Sample or population?
+
+The sample size will be all data that is available in the combination of data sources above.
+
+
+## Sample size rationale
+<!-- This could include a power analysis or an arbitrary constraint such as time, money, or personnel. -->
+
+The data is limited by when the requiremnent to publish open access by the main Swedish grant agencies was introduced. We collect data from 3 years before that was introduced to establish a baseline of degree of open acceess publications. Then we take all data up to 2017 to make sure that we have data for whole years.
+Data is also limited to one data source for each type of data. We have chosen the data sources with the best coverage of data that we are interested in by doing pilot searches. Web of Science had the best coverage of bibliometric information that is available via an API (Google Scholar has better coverage, but no easy way to get the data). ....
+
+
+
+## Stopping rule
+<!-- If your data collection procedures do not give you full control over your exact sample size, specify how you will decide when to terminate your data collection. -->
+
+No.
+
+
+
+# Variables
+<!-- In this section you can describe all variables (both manipulated and measured variables) that will later be used in your confirmatory analysis plan. In your analysis plan, you will have the opportunity to describe how each variable will be used. If you have variables which you are measuring for exploratory analyses, you are not required to list them, though you are permitted to do so. -->
+
++ publication year
++ current article open access status (vi vet inte hur det var då? Lovisa kollar upp något)
++ article funding information
++ funding agency startyear of open access publication requirement
++ funding agency type of open access publication requirement
++ author affilliation
++ article doi
+
+
+
+## Manipulated variables
+<!-- Describe all variables you plan to manipulate and the levels or treatment arms of each variable. For observational studies and meta-analyses, simply state that this is not applicable. -->
+
+Enter your response here.
+
+
+## Measured variables
+<!-- Describe each variable that you will measure. This will include outcome measures, as well as any predictors or covariates that you will measure. You do not need to include any variables that you plan on collecting if they are not going to be included in the confirmatory analyses of this study. -->
+
+Enter your response here.
+
+
+## Indices
+<!-- If any measurements are  going to be combined into an index (or even a mean), what measures will you use and how will they be combined? Include either a formula or a precise description of your method. If your are using a more complicated statistical method to combine measures (e.g. a factor analysis), you can note that here but describe the exact method in the analysis plan section. -->
+
+OA status. Green, Bronze, other categories... Specify!
+
+
+
+# Design Plan
+<!-- In this section, you will be asked to describe the overall design of your study. Remember that this research plan is designed to register a single study, so if you have multiple experimental designs, please complete a separate preregistration. -->
+
+
+## Study type
+
+**Observational Study**. Data is collected from study subjects that are not randomly assigned to a treatment. This includes surveys, natural experiments, and regression discontinuity designs.
+
+
+## Blinding
+<!-- Blinding describes who is aware of the experimental manipulations within a study. Mark all that apply. -->
+
+Data will be collected by two of the authors. The affiliations and oainformation will be given codes. Then two of the other authors will analyze the data without being aware of the meaning of the codes.
+
+
+## Study design
+<!-- Describe your study design. Examples include two-group, factorial, randomized block, and repeated measures. Is it a between (unpaired), within-subject (paired), or mixed design? Describe any counterbalancing required. Typical study designs for observation studies include cohort, cross sectional, and case-control studies. -->
+
+The design of this observational study is a longitudinal study....
+
+
+## Randomization
+<!-- If you are doing a randomized study, how will you randomize, and at what level? -->
+
+No.
+
+
+
+# Analysis Plan
+<!-- You may describe one or more confirmatory analysis in this section. Remember, all analyses specified in this section must be reported in the final article, and any additional analyses must be clearly labeled as exploratory or hypothesis generating in the final paper. A confirmatory analysis plan must state up front which variables are predictors (independent) and which are the outcomes (dependent), otherwise it is an exploratory analysis.
+
+You may describe exploratory analyses in this section, but a clear confirmatory analysis is required. An exploratory test is any test where a prediction is not made up front, or there are multiple possible tests that you are going to use. A statistically significant finding in an exploratory test is a great way to form a new confirmatory hypothesis, which could be registered at a later time.
+
+To help you keep track of multiple analyses, you may label each for your reference. -->
+
+We will conduct a time series analysis and descriptive analyses. The dependent variable will be open access status of the articles. The independent variables will have different levels, ..... 
+Each article has oa-status, funding information, first author, and year. The author has an affiliation.
+
+## Statistical models
+<!-- What statistical model(s) will you use to test your hypothesis(ses)? Please include the type of model (e.g. ANOVA, regression, SEM, etc.) as well as the specification of the model (this includes all variables that will be included as predictors, outcomes, or covariates). Refer to the *Hypotheses* section to relate each hypothesis to a statistical analysis. Please specify any interactions that will be tested and remember that any test not included here must be labeled as an exploratory test in your final article. -->
+
+Enter your response here.
+
+
+## Transformations
+<!-- If you plan on transforming, centering, recoding the data, or will require a coding scheme for categorical variables, please describe that process. -->
+
+No.
+
+
+## Follow-up analyses
+<!-- If not specified previously, will you be conducting any confirmatory analyses to follow up on effects in your statistical model, such as subgroup analyses, pairwise or complex contrasts, or follow-up tests from interactions. Refer to the *Hypotheses* section to relate each hypothesis to a statistical analysis. Remember that any analyses not specified in this research plan must be noted as exploratory. -->
+
+Enter your response here.
+
+
+## Inference criteria
+<!-- What criteria will you use to make inferences? Please describe the information you'll use (e.g. p-values, Bayes factors, specific model fit indices), as well as cut-off criterion, where appropriate. Will you be using one or two tailed tests for each of your analyses? If you are comparing multiple conditions or testing multiple hypotheses, will you account for this? -->
+
+Enter your response here.
+
+
+## Data exclusion
+<!-- How will you determine what data or samples, if any, to exclude from your analyses? How will outliers be handled? -->
+
+Enter your response here.
+
+
+## Missing data
+<!-- How will you deal with incomplete or missing data? -->
+
+The degree of missing data from the different data sources will be documented. 
+Will we do an analysis of these?
+
+
+
+## Assumptions (optional)
+<!-- If you are planning on testing the assumptions of the statistical tests included in your analysis plan, which assumptions will you test, how will you test them, what criteria will you use to make decisions based on that test, and what alternative statistical tests will you use? This may be an item where a decision tree could be helpful to plan and communicate the possibilities. -->
+
+Enter your response here.
+
+
+## Exploratory analyses (optional)
+<!-- If you plan to explore your data set to look for unexpected differences or relationships, you may describe those tests here. An exploratory test is any test where a prediction is not made up front, or there are multiple possible tests that you are going to use. A statistically significant finding in an exploratory test is a great way to form a new confirmatory hypothesis, which could be registered at a later time. -->
+
+Enter your response here.
+
+
+## Analysis scripts (optional)
+<!-- The purpose of a fully commented analysis script is to unambiguously provide the responses to all of the questions raised in the analysis section. This step is not common, but we encourage you to try creating an analysis script, refine it using a modeled dataset, and use it in place of your written analysis plan.
+
+Upload an analysis script with clear comments. This optional step is helpful in order to create a process that is completely transparent and increase the likelihood that your analysis can be replicated. We recommend that you run the code on a simulated dataset in order to check that it will run without errors. -->
+
+Enter your response here.
+
+
+# Other
+
+## Other (Optional)
+<!-- If there is any additional information that you feel needs to be included in your preregistration, please enter it here. -->
+
+Enter your response here.
+
+
+# References
+## 
+\vspace{-2pc}
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{-1in}
+\setlength{\parskip}{8pt}
+\noindent
