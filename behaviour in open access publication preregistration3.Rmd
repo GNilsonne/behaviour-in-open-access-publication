@@ -1,5 +1,5 @@
 ---
-title           : "Compliance/Behaviour in open access publication preregistration"
+title           : "Compliance of funder requirements of open access publication preregistration"
 shorttitle      : "Open access preregistration"
 date            : "`r Sys.setlocale('LC_TIME', 'C'); format(Sys.time(), '%d\\\\. %B %Y')`"
 
@@ -47,16 +47,11 @@ How does a requirement from the fundig agency to publish articles open access af
 
 ## Hypotheses
 <!-- For each of the research questions listed in the previous section, provide one or multiple specific and testable hypotheses. Please state if the hypotheses are directional or non-directional. If directional, state the direction. A predicted effect is also appropriate here. Providing a short name for each hypothesis (e.g. H1, H2, etc.) will later allow you to easily relate your hypotheses to statistical tests in your analysis plan. -->
-H1: There will be 100% open access articles or close to that, i.e., the requirement will be followed.
-H2a:
-H2b:
-H2c:
-
-H3a: There will be no significant change in degree of open access articles compared to other articles from the same first authors
-H3b: There will be no significant change in degree of open access articles compared to other articles from the same affiliations
-H3c: There will be no significant change in degree of open access articles compared to other articles from the same time period
-
-H4: there will be lower degree of open access articles compared to...
++ H1: There will be 100% open access articles or close to that, i.e., the requirement will be followed.
++ H2: There will be a significantly higher degree of open access articles compared to XXXXXX
++ H3: There will be no significant difference in degree of open access articles compared to XXXXXX
++ H4: There will be no significant difference in degree of open access articles compared to XXXXXX, but the type of OA is different
++ H5: There will be a significantly lower degree of open access articles compared to XXXXXX
 
 
 
@@ -69,17 +64,26 @@ We will collect open access status of published articles from Unpaywall via the 
 
 Data will be a sample with the following characteristics:
 Only articles with a Swedish affilliation for the first author will be collected. This is because every funding agency has different requirements and to make the project feasible we limit ourselves to Swedish funding agencies where we know when different open access requirements were introduced.
-Swedish affiliation is defined by Sweden" or "Sverige" in the affiliation information for the article.
+Swedish affiliation is defined by "Sweden" or "Sverige" in the affiliation information for the article.
 The link between articles and funding information is the article doi.
 The funding information is free text. We will identify relevant funders with regular expression. 
 We will search for diarienummer too .....
 The larger grant agencies in Sweden who has introduced an open access requiremnet are the following:
-Vetenskapsrådet - The Swedish research agency staring from grants awarded 
-Forte - ....
-Formas - .....
-Riksbankens Jubileumsfond - .....
+Vetenskapsrådet - The Swedish research agency staring from grants awarded 2010.
+Forte - .... staring from grants awarded 2012
+Formas - ..... staring from grants awarded 2010
+Riksbankens Jubileumsfond - .....staring from grants awarded 2010
 
 Data will be collected for the following publication years `r rmarkdown::metadata$startyear` to `r rmarkdown::metadata$endyear`. 
+
+###Assumptions:
++ Not all articles are published in WoS-journals. On the contrary, there is a rather large difference between academic fields. We are aware of this difference….
++ Mandated OA was introduced 2010 (2012). We assume that there is a time -lag of xx years from… 
++ Some articles do not have doi-identificators. The share of articles with doi-identificators have risen over time. We assume that articles with doi-identificator follow the same pattern as articles without doi-identificator.
++ Some articles do not have funding information, although they are obliged to. 
++ We assume that articles incorrectloy without funding information follow the same pattern as articles with funding information.
++ Most articles are co-written. Our study will identify all articles with at least one Swedish author. 
++ We assume that the affiliations are correct, i.e. that  the word “Sweden” is correctly used in affiliations
 
 
 ## Existing data
