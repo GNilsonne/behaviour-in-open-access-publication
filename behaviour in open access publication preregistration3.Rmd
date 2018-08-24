@@ -23,7 +23,7 @@ affiliation:
   - id          : 3
     institution : Karolinska Institutet 
 
-startyear: 2009
+startyear: 2007
 endyear: 2017
 
 output: prereg::cos_prereg
@@ -39,50 +39,48 @@ output: prereg::cos_prereg
 
 ## Research questions
 <!-- Please list each research question included in this study. -->
-How does a requirement from the fundig agency to publish articles open access affect the degree of open access publication?
+The main research question of this project is: how does the introduction of open access publishing mandates by science funders affect the degree of open access publication?
 
-
+Additionally, we aim to describe trends in open science publication of Swedish research, with respect to fraction of open access publication and types of open access.
 
 
 
 ## Hypotheses
 <!-- For each of the research questions listed in the previous section, provide one or multiple specific and testable hypotheses. Please state if the hypotheses are directional or non-directional. If directional, state the direction. A predicted effect is also appropriate here. Providing a short name for each hypothesis (e.g. H1, H2, etc.) will later allow you to easily relate your hypotheses to statistical tests in your analysis plan. -->
-+ H1: There will be 100% open access articles or close to that, i.e., the requirement will be followed.
-+ H2: There will be a significantly higher degree of open access articles compared to XXXXXX
-+ H3: There will be no significant difference in degree of open access articles compared to XXXXXX
-+ H4: There will be no significant difference in degree of open access articles compared to XXXXXX, but the type of OA is different
-+ H5: There will be a significantly lower degree of open access articles compared to XXXXXX
-
++ H1: The introduction of open access mandates will be aqssociated with an increase in open access publishing.
 
 
 # Sampling Plan
 <!-- Please describe how you plan to collect samples, as well as the number of samples you plan to collect and your rationale for this decision. Keep in mind that the data described in this section should be the actual data used for analysis, so if you are using a subset of a larger dataset, please describe the subset that will actually be used in your study. -->
-We will collect data from different sources:
-We will collect bibliometric information and funding information from web of science via their API. 
 
-We will collect open access status of published articles from Unpaywall via the r package roadoi (insert reference).
+Data sources:
++ We will collect bibliometric information and funding information from web of science via their API. 
++ We will collect open access status of published articles from Unpaywall via the R package 'roadoi' (Jahn 2018).
 
-Data will be a sample with the following characteristics:
-Only articles with a Swedish affilliation for the first author will be collected. This is because every funding agency has different requirements and to make the project feasible we limit ourselves to Swedish funding agencies where we know when different open access requirements were introduced.
-Swedish affiliation is defined by "Sweden" or "Sverige" in the affiliation information for the article.
-The link between articles and funding information is the article doi.
-The funding information is free text. We will identify relevant funders with regular expression. 
-We will search for diarienummer too .....
-The larger grant agencies in Sweden who has introduced an open access requiremnet are the following:
+Inclusion criteria:
++ Swedish affiliation for the first author. This is because every funding agency has different requirements and to make the project feasible we limit ourselves to Swedish funding agencies where we know when different open access requirements were introduced. Swedish affiliation is defined by "Sweden" or "Sverige" in the affiliation information for the article.
++ Data will be collected for the following publication years `r rmarkdown::metadata$startyear` to `r rmarkdown::metadata$endyear`. This peridod of time will cover the introduction of open access policies by major funders. The larger grant agencies in Sweden who has introduced an open access requiremnet are the following:
 Vetenskapsrådet - The Swedish research agency staring from grants awarded 2010.
 Forte - .... staring from grants awarded 2012
 Formas - ..... staring from grants awarded 2010
 Riksbankens Jubileumsfond - .....staring from grants awarded 2010
 
-Data will be collected for the following publication years `r rmarkdown::metadata$startyear` to `r rmarkdown::metadata$endyear`. 
+
+Matching procedure:
++ The link between articles and funding information is the article doi.
++ The funding information is free text. We will identify relevant funders with regular expressions. 
+We will search for diarienummer too .....
+
+
+
 
 ###Assumptions:
 + Not all articles are published in WoS-journals. On the contrary, there is a rather large difference between academic fields. We are aware of this difference….
 + Mandated OA was introduced 2010 (2012). We assume that there is a time -lag of xx years from… 
 + Some articles do not have doi-identificators. The share of articles with doi-identificators have risen over time. We assume that articles with doi-identificator follow the same pattern as articles without doi-identificator.
 + Some articles do not have funding information, although they are obliged to. 
-+ We assume that articles incorrectloy without funding information follow the same pattern as articles with funding information.
-+ Most articles are co-written. Our study will identify all articles with at least one Swedish author. 
++ We assume that articles incorrectly without funding information follow the same pattern as articles with funding information.
++ Most articles are co-authored. Our study will identify all articles with at least one Swedish author. (Gustav: Fast där uppe säger vi svensk förstaförfattare)
 + We assume that the affiliations are correct, i.e. that  the word “Sweden” is correctly used in affiliations
 
 
@@ -99,10 +97,10 @@ Data will be collected for the following publication years `r rmarkdown::metadat
 ## Explanation of existing data
 <!-- If you indicate that you will be using some data that already exist in this study, please describe the steps you have taken to assure that you are unaware of any patterns or summary statistics in the data. This may include an explanation of how access to the data has been limited, who has observed the data, or how you have avoided observing any analysis of the specific data you will use in your study. The purpose of this question is to assure that the line between confirmatory and exploratory analysis is clear. -->
 
-All data is available, but  the combination of data from different sources is not. 
+All data are available, but  the combination of data from different sources is not. 
 To avoid harking, one of the authors searched the first 200 entries from web of science to use as pilot data. 
 On the pilot data, two other authors could optimize the regular expression to find different spellings of the grant agencies. 
-Pilot data was also used to make sure that the coverage of funding information was good in Crosref.
+Pilot data was also used to make sure that the coverage of funding information was good in Crossref.
 
 
 
@@ -278,3 +276,11 @@ Enter your response here.
 \setlength{\leftskip}{-1in}
 \setlength{\parskip}{8pt}
 \noindent
+
+ @Manual{,
+    title = {roadoi: Find Free Versions of Scholarly Publications via Unpaywall},
+    author = {Najko Jahn},
+    year = {2018},
+    note = {R package version 0.5.1},
+    url = {https://CRAN.R-project.org/package=roadoi},
+  }
