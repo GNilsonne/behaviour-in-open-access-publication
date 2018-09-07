@@ -12,8 +12,7 @@ author:
     affiliation : "1"
   - name        : Johanna Nählinder
     affiliation : "1"
-  - name        : David Lawrence
-    affiliation : "1"
+
 
 affiliation:
   - id          : 1
@@ -47,8 +46,8 @@ Additionally, we aim to describe trends in open science publication of Swedish r
 
 ## Hypotheses
 <!-- For each of the research questions listed in the previous section, provide one or multiple specific and testable hypotheses. Please state if the hypotheses are directional or non-directional. If directional, state the direction. A predicted effect is also appropriate here. Providing a short name for each hypothesis (e.g. H1, H2, etc.) will later allow you to easily relate your hypotheses to statistical tests in your analysis plan. -->
-+ H1: The introduction of open access mandates will be aqssociated with an increase in open access publishing.
-
++ H1: The introduction of open access mandates will be associated with an increase in open access publishing.
++ H2: The introduction of open access mandates will be associated with an change in type of open access publishing.
 
 # Sampling Plan
 <!-- Please describe how you plan to collect samples, as well as the number of samples you plan to collect and your rationale for this decision. Keep in mind that the data described in this section should be the actual data used for analysis, so if you are using a subset of a larger dataset, please describe the subset that will actually be used in your study. -->
@@ -58,20 +57,28 @@ Data sources:
 + We will collect open access status of published articles from Unpaywall via the R package 'roadoi' (Jahn 2018).
 
 Inclusion criteria:
-+ Swedish affiliation for the first author. This is because every funding agency has different requirements and to make the project feasible we limit ourselves to Swedish funding agencies where we know when different open access requirements were introduced. Swedish affiliation is defined by "Sweden" or "Sverige" in the affiliation information for the article.
++ Swedish affiliation for the reprint author. If reprint author is missing, then affiliation for the first author is used. This is because every funding agency has different requirements and to make the project feasible we limit ourselves to Swedish funding agencies where we know when different open access requirements were introduced. Swedish affiliation is defined by "Sweden" or "Sverige" in the affiliation information for the article as defined above.
+
 + Data will be collected for the following publication years `r rmarkdown::metadata$startyear` to `r rmarkdown::metadata$endyear`. This peridod of time will cover the introduction of open access policies by major funders. The larger grant agencies in Sweden who has introduced an open access requiremnet are the following:
-Vetenskapsrådet - The Swedish research agency staring from grants awarded 2010.
+
+Vetenskapsrådet - The Swedish research agency starting from grants awarded 2010.
+
 Forte - .... staring from grants awarded 2012
+
 Formas - ..... staring from grants awarded 2010
+
 Riksbankens Jubileumsfond - .....staring from grants awarded 2010
 
 
 Matching procedure:
 + The link between articles and funding information is the article doi.
+
 + The funding information is free text. We will identify relevant funders with regular expressions. 
+
 We will search for diarienummer too .....
 
 
+Kontrollgrupper: Har svensk affilliering, artikel har doi. Sen kan man tänkas dig olika grupper: K1=saknas funding info och k2=har annan funding info.
 
 
 ###Assumptions:
@@ -80,8 +87,10 @@ We will search for diarienummer too .....
 + Some articles do not have doi-identificators. The share of articles with doi-identificators have risen over time. We assume that articles with doi-identificator follow the same pattern as articles without doi-identificator.
 + Some articles do not have funding information, although they are obliged to. 
 + We assume that articles incorrectly without funding information follow the same pattern as articles with funding information.
-+ Most articles are co-authored. Our study will identify all articles with at least one Swedish author. (Gustav: Fast där uppe säger vi svensk förstaförfattare)
++ Most articles are co-authored. Our study will identify all articles with at least one Swedish author. (Gustav: Fast där uppe säger vi svensk förstaförfattare, Henrik: Kunde vi definiera att det var förstaförfattare enkelt. Var det inte bara ett sökfält för affiliations?)
 + We assume that the affiliations are correct, i.e. that  the word “Sweden” is correctly used in affiliations
++ OA status på artiklar ändras i efterhand. Vi behöver ha kolla på detta på något sätt. Åtminstone hur vanligt det är. Lovisa ska kolla upp detta. Räcker det med jämförelsen med kontrollgruppen?
+
 
 
 ## Existing data
@@ -100,7 +109,7 @@ We will search for diarienummer too .....
 All data are available, but  the combination of data from different sources is not. 
 To avoid harking, one of the authors searched the first 200 entries from web of science to use as pilot data. 
 On the pilot data, two other authors could optimize the regular expression to find different spellings of the grant agencies. 
-Pilot data was also used to make sure that the coverage of funding information was good in Crossref.
+Pilot data was also used to make sure that the coverage of funding information was sufficient (need a number?) in Crossref.
 
 
 
@@ -121,7 +130,7 @@ The sample size will be all data that is available in the combination of data so
 ## Sample size rationale
 <!-- This could include a power analysis or an arbitrary constraint such as time, money, or personnel. -->
 
-The data is limited by when the requiremnent to publish open access by the main Swedish grant agencies was introduced. We collect data from 3 years before that was introduced to establish a baseline of degree of open acceess publications. Then we take all data up to 2017 to make sure that we have data for whole years.
+The data is limited by when the requirement to publish open access by the main Swedish grant agencies was introduced. We collect data from 3 years before that was introduced to establish a baseline of degree of open acceess publications. Then we take all data up to 2017 to make sure that we have data for whole years. (Henrik: Vad sa vi om täckningsgraden i olika källor? Kunde vi börja 2007 som det står tidigare?)
 Data is also limited to one data source for each type of data. We have chosen the data sources with the best coverage of data that we are interested in by doing pilot searches. Web of Science had the best coverage of bibliometric information that is available via an API (Google Scholar has better coverage, but no easy way to get the data). ....
 
 
@@ -138,6 +147,7 @@ No.
 
 + publication year
 + current article open access status (vi vet inte hur det var då? Lovisa kollar upp något)
++ article open access status 12 months after publication
 + article funding information
 + funding agency startyear of open access publication requirement
 + funding agency type of open access publication requirement
@@ -161,7 +171,35 @@ Enter your response here.
 ## Indices
 <!-- If any measurements are  going to be combined into an index (or even a mean), what measures will you use and how will they be combined? Include either a formula or a precise description of your method. If your are using a more complicated statistical method to combine measures (e.g. a factor analysis), you can note that here but describe the exact method in the analysis plan section. -->
 
-OA status. Green, Bronze, other categories... Specify!
+OA status. Green, Bronze, other categories... Specify! 
+
+Use definition from "The State of OA: A large-scale analysis of the prevalence and impact of Open Access articles" av Piwowar, Priem, Larivière , Alperin, Matthias, Norlander, Farley, West, Haustein?
+citat:
+"Classifications
+We classify publications into two categories, OA and Closed. As described above, we define OA
+as free to read online, either on the publisher website or in an OA repository ; all articles not
+meeting this definition were defined as Closed. We further divide the OA literature into one of
+four exclusive subcategories, resulting in a five-category classification system for articles:
+● Gold : Published in an open-access journal (as defined by the DOAJ).
+● Green : Toll-access on the publisher page, but there is a free copy in an OA repository.
+● Hybrid : Free under an open license in a toll-access journal.
+● Bronze : Free to read on the publisher page, but without a license.
+● Closed : All other articles, including those shared only on an ASN or in Sci-Hub.
+These categories are largely consistent with their use throughout the OA literature, although a
+few clarifications are useful. First, we (like many other OA studies) do not include ASN-hosted
+content as OA. Second, categories are exclusive, and publisher-hosted content takes
+precedence over self-archived content. This means that if an article is posted in both a Gold
+journal and an OA repository, we would classify it as Gold, not Green. Put another way,
+publisher-hosted content can “shadow” archived articles that would otherwise be Green. This
+definition of Green (“available in a repository but not available from the publisher”) is often used
+in the OA literature (including by Steven Harnad, the coiner of the Green and Gold terms
+[Harnad et al., 2008]), but this usage is not unanimous. Some studies allow a given article to be
+both Gold and Green; compared to these, our classification system does undercount Green.
+Finally, we add novel subcategory, Bronze. Bronze shares attributes of Gold and Hybrid; like
+both, Bronze OA articles are publisher-hosted. Unlike Gold OA, Bronze articles are not
+published in journals listed as OA in the DOAJ. Unlike Hybrid, Bronze articles are Gratis OA,
+carrying no license to extend reuse rights beyond simply reading. It is not clear if Bronze articles
+are temporarily or permanently available to read for free."
 
 
 
@@ -218,7 +256,7 @@ No.
 ## Follow-up analyses
 <!-- If not specified previously, will you be conducting any confirmatory analyses to follow up on effects in your statistical model, such as subgroup analyses, pairwise or complex contrasts, or follow-up tests from interactions. Refer to the *Hypotheses* section to relate each hypothesis to a statistical analysis. Remember that any analyses not specified in this research plan must be noted as exploratory. -->
 
-Enter your response here.
+Follow-up analyses will be made to investigate if the main result is different depending on affiliation (which university in Sweden). 
 
 
 ## Inference criteria
