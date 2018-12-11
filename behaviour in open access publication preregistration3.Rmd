@@ -238,13 +238,14 @@ You may describe exploratory analyses in this section, but a clear confirmatory 
 
 To help you keep track of multiple analyses, you may label each for your reference. -->
 
-We will conduct a time series analysis and descriptive analyses. The dependent variable will be open access status of the articles. The independent variables will have different levels, ..... 
-Each article has oa-status, funding information, first author, and year. The author has an affiliation.
+## Descriptive analyses
+
+We will tabulate and plot the frequency and proportion of OA articles by funder and year.
 
 ## Statistical models
 <!-- What statistical model(s) will you use to test your hypothesis(ses)? Please include the type of model (e.g. ANOVA, regression, SEM, etc.) as well as the specification of the model (this includes all variables that will be included as predictors, outcomes, or covariates). Refer to the *Hypotheses* section to relate each hypothesis to a statistical analysis. Please specify any interactions that will be tested and remember that any test not included here must be labeled as an exploratory test in your final article. -->
 
-Enter your response here.
+We will use an interrupted time series model. OA status will be the outcome. Predictors will be presence of policy (yes/no) and time since introduction of policy. The analysis will be performed as in Hardwicke et al. 2017 (http://rsos.royalsocietypublishing.org/content/5/8/180448, R code available at https://osf.io/y2meu/. Thus, we will fit a general linear model with a logistic link function.
 
 
 ## Transformations
