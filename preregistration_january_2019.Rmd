@@ -171,35 +171,17 @@ Not applicable.
 ## Indices
 <!-- If any measurements are  going to be combined into an index (or even a mean), what measures will you use and how will they be combined? Include either a formula or a precise description of your method. If your are using a more complicated statistical method to combine measures (e.g. a factor analysis), you can note that here but describe the exact method in the analysis plan section. -->
 
-OA status. Green, Bronze, other categories... Specify! 
+We will define different types of OA status (Green, Gold, Hybrid, Bronze, and Closed) as rules to use on the Unpaywall data.  
 
-Use definition from "The State of OA: A large-scale analysis of the prevalence and impact of Open Access articles" av Piwowar, Priem, Larivière , Alperin, Matthias, Norlander, Farley, West, Haustein?
-citat:
-"Classifications
-We classify publications into two categories, OA and Closed. As described above, we define OA
-as free to read online, either on the publisher website or in an OA repository ; all articles not
-meeting this definition were defined as Closed. We further divide the OA literature into one of
-four exclusive subcategories, resulting in a five-category classification system for articles:
- Gold : Published in an open-access journal (as defined by the DOAJ).
- Green : Toll-access on the publisher page, but there is a free copy in an OA repository.
- Hybrid : Free under an open license in a toll-access journal.
- Bronze : Free to read on the publisher page, but without a license.
- Closed : All other articles, including those shared only on an ASN or in Sci-Hub.
-These categories are largely consistent with their use throughout the OA literature, although a
-few clarifications are useful. First, we (like many other OA studies) do not include ASN-hosted
-content as OA. Second, categories are exclusive, and publisher-hosted content takes
-precedence over self-archived content. This means that if an article is posted in both a Gold
-journal and an OA repository, we would classify it as Gold, not Green. Put another way,
-publisher-hosted content can “shadow” archived articles that would otherwise be Green. This
-definition of Green (“available in a repository but not available from the publisher”) is often used
-in the OA literature (including by Steven Harnad, the coiner of the Green and Gold terms
-[Harnad et al., 2008]), but this usage is not unanimous. Some studies allow a given article to be
-both Gold and Green; compared to these, our classification system does undercount Green.
-Finally, we add novel subcategory, Bronze. Bronze shares attributes of Gold and Hybrid; like
-both, Bronze OA articles are publisher-hosted. Unlike Gold OA, Bronze articles are not
-published in journals listed as OA in the DOAJ. Unlike Hybrid, Bronze articles are Gratis OA,
-carrying no license to extend reuse rights beyond simply reading. It is not clear if Bronze articles
-are temporarily or permanently available to read for free."
+Green is defined as "Available from an open repository". The Unpaywall rules for this are is_oa=True AND best_oa_host=repository.
+
+Gold is defined as "Published in an open access journal indexed in DOAJ". The Unpaywall rules for this are is_oa=True AND best_oa_host=publisher AND journal_is_oa=True.
+
+Hybrid is defined as "Published open access in a subscription-based journal under an open license". The Unpaywall rules for this are is_oa=True AND best_oa_host=publisher AND best_oa_license<>””(empty string/null).
+
+Bronze is defined as "Available to read on publisher’s site, without a license". The Unpaywall rules for this are is_oa=True AND best_oa_host=publisher AND best_oa_license=””(empty string/null).
+
+Closed is defined as "Not open access". The unpaywall rule for this is is_oa=False.
 
 
 
