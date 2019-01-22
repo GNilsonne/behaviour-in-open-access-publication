@@ -83,17 +83,6 @@ Based on the information above, articles with Swedish affiliation will be divide
 3. No funding information
 
 
-###Assumptions and limitations:
-
-+ Not all articles are published in WoS-listed journals. On the contrary, there is a rather large difference between academic fields. We are aware of this difference….
-+ Some articles do not have doi:s. The share of articles with doi:s has risen over time. We assume that articles with doi:s follow the same pattern as articles without doi:s.
-+ Some articles do not have funding information. 
-+ We assume that articles incorrectly without funding information follow the same pattern as articles with funding information.
-+ Most articles are co-authored. Our study will identify all articles with a Swedish corresponding author. It is plausible that research awarded to a Swedish researcher will in most cases have a Swedish corresponding author affiliation, but this will not always be the case.  
-+ We assume that the affiliations are correct, i.e. that the words “Sweden” or "Sverige" are correctly used in affiliations.
-+ OA status of articles can change over time. An article that was not OA when published can become OA later. The other way around is not plausible but this means that there is a bias towards OA in our data. The comparison group will however likely show the same effect.
-
-
 ## Existing data
 <!-- Preregistration is designed to make clear the distinction between confirmatory tests, specified prior to seeing the data, and exploratory analyses conducted after observing the data. Therefore, creating a research plan in which existing data will be used presents unique challenges. Please select the description that best describes your situation. Please do not hesitate to contact the Center for Open Science if you have questions about how to answer this questions (prereg@cos.io). -->
 
@@ -123,7 +112,7 @@ The sample size will be all data that is available in the combination of data so
 ## Sample size rationale
 <!-- This could include a power analysis or an arbitrary constraint such as time, money, or personnel. -->
 
-The data are limited by when the requirement to publish open access by the main Swedish research funding agencies was introduced. We collect data from 2 years before that was introduced to establish a baseline of degree of open acceess publications. Then we use all data up to 2017 to make sure that we have data for whole years. 
+The data are limited by when the requirement to publish open access by the main Swedish research funding agencies was introduced. We collect data from 2 years before that was introduced to establish a baseline of degree of open acceess publications. Then we use all data up to 2017 to make sure that we have data for full years. 
 
 Data is also limited to one data source for each type of data. We have chosen the data sources with the best coverage of data that we are interested in by doing pilot searches. Web of Science had the best coverage of bibliometric information that is available via an API (Google Scholar has better coverage, but no easy way to get the data). The exception from one data source is funding information where we will use data from Web of Science that we know is sufficient. We will also use data from Dimensions, but we have not access to their API yet, so we have noy been able to evaluate their coverage.
 
@@ -261,7 +250,16 @@ The degree of missing data from the different data sources will be documented an
 ## Assumptions (optional)
 <!-- If you are planning on testing the assumptions of the statistical tests included in your analysis plan, which assumptions will you test, how will you test them, what criteria will you use to make decisions based on that test, and what alternative statistical tests will you use? This may be an item where a decision tree could be helpful to plan and communicate the possibilities. -->
 
-No.
+There are several assumptions and limitations for our analysis. We list them here to show that we are aware of them, but we will not conduct any analyses to test the assumptions.
+
++ Not all articles are published in WoS-listed journals. On the contrary, there is a rather large difference between academic fields. We are aware of this difference….
++ Some articles do not have doi:s. The share of articles with doi:s has risen over time. We assume that articles with doi:s follow the same pattern as articles without doi:s.
++ Some articles do not have funding information. 
++ We assume that articles incorrectly without funding information follow the same pattern as articles with funding information.
++ Most articles are co-authored. Our study will identify all articles with a Swedish corresponding author. It is plausible that research awarded to a Swedish researcher will in most cases have a Swedish corresponding author affiliation, but this will not always be the case.  
++ We assume that the affiliations are correct, i.e. that the words “Sweden” or "Sverige" are correctly used in affiliations.
++ OA status of articles can change over time. An article that was not OA when published can become OA later. The other way around is not plausible but this means that there is a bias towards OA in our data. The comparison group will however likely show the same effect.
+
 
 
 ## Exploratory analyses (optional)
