@@ -54,7 +54,7 @@ Additionally, we aim to describe trends in open science publication of Swedish r
 
 Data sources:
 
-* We will collect bibliometric information and funding information from Dimensions or Web of Science. We think that Dimensions has a better coverage than Web of Science, but that will be tested in the beginning of the project. The data source with best coverage of funding information will be used.
+* We will collect bibliographic information and funding information from Dimensions or Web of Science. We think that Dimensions has a better coverage than Web of Science, but that will be tested in the beginning of the project. The data source with best coverage of funding information will be used.
 * We will collect open access status of published articles from Unpaywall via the R package 'roadoi' (Jahn 2018).
 
 
@@ -114,7 +114,7 @@ The sample size will be all data that is available in the combination of data so
 
 The data are limited by when the requirement to publish open access by the main Swedish research funding agencies was introduced. We collect data from 2 years before that was introduced to establish a baseline of degree of open acceess publications. Then we use all data up to 2017 to make sure that we have data for full years. 
 
-Data is also limited to one data source for each type of data. We have chosen the data sources with the best coverage of data that we are interested in by doing pilot searches. We will use data from Dimensions, but we have not access to their API yet, so we have not been able to evaluate their coverage yet. Of the data sources that we have evaluated, Web of Science had the best coverage of bibliometric information and funding information that is available for easy download (Google Scholar has better coverage, but no easy way to get the data). 
+Data is also limited to one data source for each type of data. We have chosen the data sources with the best coverage of data that we are interested in by doing pilot searches. We will use data from Dimensions, but we have not access to their API yet, so we have not been able to evaluate their coverage yet. Of the data sources that we have evaluated, Web of Science had the best coverage of bibliographic information and funding information that is available for easy download (Google Scholar has better coverage, but no easy way to get the data). 
 
 The sample of articles is divided into three groups: 
 
@@ -292,10 +292,10 @@ No.
 \setlength{\parskip}{8pt}
 \noindent
 
- @Manual{,
-    title = {roadoi: Find Free Versions of Scholarly Publications via Unpaywall},
-    author = {Najko Jahn},
-    year = {2018},
-    note = {R package version 0.5.1},
-    url = {https://CRAN.R-project.org/package=roadoi},
-  }
+ <!-- @Manual{, -->
+ <!--    title = {roadoi: Find Free Versions of Scholarly Publications via Unpaywall}, -->
+ <!--    author = {Najko Jahn}, -->
+ <!--    year = {2018}, -->
+ <!--    note = {R package version 0.5.1}, -->
+ <!--    url = {https://CRAN.R-project.org/package=roadoi}, -->
+ <!--  } -->
