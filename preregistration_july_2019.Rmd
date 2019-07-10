@@ -1,0 +1,302 @@
+---
+title           : "Preregistration: Compliance with Swedish research funders' open access policies"
+shorttitle      : "Open access preregistration"
+date            : "`r Sys.setlocale('LC_TIME', 'C'); format(Sys.time(), '%d\\\\. %B %Y')`"
+
+author: 
+  - name        : Henrik Danielsson
+    affiliation : "1"
+  - name        : Gustav Nilsonne
+    affiliation : "2,3"
+  - name        : Lovisa Österlund
+    affiliation : "1"
+  - name        : Johanna Nählinder
+    affiliation : "1"
+
+
+affiliation:
+  - id          : 1
+    institution : Linköping University
+  - id          : 2
+    institution : Stockholm University 
+  - id          : 3
+    institution : Karolinska Institutet 
+
+startyear: 2008
+endyear: 2017
+
+output: prereg::cos_prereg
+---
+
+# Study Information
+
+## Title
+<!-- Provide the working title of your study. It may be the same title that you submit for publication of your final manuscript, but it is not a requirement. -->
+
+`r rmarkdown::metadata$title`
+
+
+## Research questions
+<!-- Please list each research question included in this study. -->
+The main research question of this project is: how did the introduction of open access publishing mandates by Swedish research funders affect the proportion of open access publication?
+
+Additionally, we aim to describe trends in open science publication of Swedish research, with respect to fraction of open access publication and types of open access.
+
+
+## Hypotheses
+<!-- For each of the research questions listed in the previous section, provide one or multiple specific and testable hypotheses. Please state if the hypotheses are directional or non-directional. If directional, state the direction. A predicted effect is also appropriate here. Providing a short name for each hypothesis (e.g. H1, H2, etc.) will later allow you to easily relate your hypotheses to statistical tests in your analysis plan. -->
+* H1a: The introduction of open access mandates will be associated with an increase in open access publishing.
+* H1b: The introduction of open access mandates will be associated with complete compliance with open access publishing mandates (100%).
+* H2: The introduction of open access mandates will be associated with a change in type of open access publishing.
+
+# Sampling Plan
+<!-- Please describe how you plan to collect samples, as well as the number of samples you plan to collect and your rationale for this decision. Keep in mind that the data described in this section should be the actual data used for analysis, so if you are using a subset of a larger dataset, please describe the subset that will actually be used in your study. -->
+
+Data sources:
+
+* We will collect bibliographic information and funding information from Dimensions or Web of Science. We think that Dimensions has a better coverage than Web of Science, but that will be tested in the beginning of the project. The data source with best coverage of funding information will be used as our primary data source and the other as secondary data source.
+* We will collect open access status of published articles from Unpaywall via the R package 'roadoi' (Jahn 2018).
+
+
+Inclusion criteria:
+
+* Swedish affiliation for the corresponding author. If corresponding author is missing, then affiliation for the first author will be used. For feasibility reasons, we limit the scope to Swedish funding agencies where we know when different open access requirements were introduced. Swedish affiliation is defined by "Sweden" or "Sverige" in the affiliation information for the article as defined above.
+
+* Data will be collected for the following publication years `r rmarkdown::metadata$startyear` to `r rmarkdown::metadata$endyear`. This peridod of time will cover the introduction of open access policies by major funders. The major grant agencies in Sweden who has introduced an open access requirement are the following:
+
++ Vetenskapsrådet - The Swedish Research Council, starting from grants awarded 2010.
++ Forte - The Swedish research agency for health, working life and welfare, starting from grants awarded 2012
++ Formas - The Swedish Research Council for Environment, Agricultural Sciences and Spatial Planning, starting from grants awarded 2010
++ Riksbankens Jubileumsfond, starting from grants awarded 2010
+
+
+Matching procedure:
+
+* The link between articles and funding information is the article doi.
+
+* The funding information is free text in Web of Science (and probably also in Dimensions). We will identify relevant funders with regular expressions. We will search for grant numbers and use them to identify which year the grant was awarded. If no year is identified, we will assume that the grant was awarded 2 years before publication. 
+
+Based on the information above, articles with Swedish affiliation will be divided into three groups:
+
+1. Funding information matching the research funders listed above
+2. Other funding information
+3. No funding information
+
+
+## Existing data
+<!-- Preregistration is designed to make clear the distinction between confirmatory tests, specified prior to seeing the data, and exploratory analyses conducted after observing the data. Therefore, creating a research plan in which existing data will be used presents unique challenges. Please select the description that best describes your situation. Please do not hesitate to contact the Center for Open Science if you have questions about how to answer this questions (prereg@cos.io). -->
+
+**Registration prior to analysis of the data**. As of the date of submission, the data exist and you have accessed it, though no analysis has been conducted related to the research plan (including calculation of summary statistics). A common situation for this scenario when a large dataset exists that is used for many different studies over time, or when a data set is randomly split into a sample for exploratory analyses, and the other section of data is reserved for later confirmatory data analysis.
+
+
+## Explanation of existing data
+<!-- If you indicate that you will be using some data that already exist in this study, please describe the steps you have taken to assure that you are unaware of any patterns or summary statistics in the data. This may include an explanation of how access to the data has been limited, who has observed the data, or how you have avoided observing any analysis of the specific data you will use in your study. The purpose of this question is to assure that the line between confirmatory and exploratory analysis is clear. -->
+
+All data are available, but we have not performed the matching between data sources.
+To test the feasibility of the proposed approach, one of the authors searched the first 200 entries from Web of Science to use as pilot data. 
+On the pilot data, two other authors could optimize the regular expression to find different spellings of the grant agencies. 
+
+
+
+## Data collection procedures
+<!-- Please describe the process by which you will collect your data. If you are using human subjects, this should include the population from which you obtain subjects, recruitment efforts, payment for participation, how subjects will be selected for eligibility from the initial pool (e.g. inclusion and exclusion rules), and your study timeline. For studies that don't include human subjects, include information about how you will collect samples, duration of data gathering efforts, source or location of samples, or batch numbers you will use. -->
+
+See above.
+
+
+## Sample size
+<!-- Describe the sample size of your study. How many units will be analyzed in the study? This could be the number of people, birds, classrooms, plots, interactions, or countries included. If the units are not individuals, then describe the size requirements for each unit. If you are using a clustered or multilevel design, how many units are you collecting at each level of the analysis? -->
+
+The sample size will be all data that is available in the combination of data sources above.
+
+## Sample size rationale
+<!-- This could include a power analysis or an arbitrary constraint such as time, money, or personnel. -->
+
+The data are limited by when the requirement to publish open access by the main Swedish research funding agencies was introduced. We collect data from 2 years before that was introduced to establish a baseline of degree of open acceess publications. Then we use all data up to 2017 to make sure that we have data for full years. 
+
+Data is also limited to one data source for each type of data (with the excption of bibliographic data, see text below). We have chosen the data sources with the best coverage of data that we are interested in by doing pilot searches. We will use bibliographic data from Web of Science and Dimensions. Of the data sources that we have evaluated, Web of Science had the best coverage of bibliographic information and funding information that is available for easy download (Google Scholar has better coverage, but no easy way to get the data). However, we have not evaluated the coverage of Dimensions at the time of this pre-registration.  
+
+The sample of articles is divided into three groups: 
+
+1. Funding information matching the research funders listed above
+2. Other funding information
+3. No funding information
+
+The comparison between group 1 and 2 is our main comparison, but group 3 is also included as a comparison. Group 3 could lack funding info for many reasons and is therefore a weaker comparison than group 2, but it is possible that it is a relatively large proportion of the articles and therefore it is important to include. 
+
+
+## Stopping rule
+<!-- If your data collection procedures do not give you full control over your exact sample size, specify how you will decide when to terminate your data collection. -->
+
+No.
+
+
+# Variables
+<!-- In this section you can describe all variables (both manipulated and measured variables) that will later be used in your confirmatory analysis plan. In your analysis plan, you will have the opportunity to describe how each variable will be used. If you have variables which you are measuring for exploratory analyses, you are not required to list them, though you are permitted to do so. -->
+
+* article publication year
+* article open access status 
+* article funding information
+* reprint author affiliation
+* article doi
+* funding agency startyear of open access publication requirement
+* funding agency type of open access publication requirement
+
+
+
+## Manipulated variables
+<!-- Describe all variables you plan to manipulate and the levels or treatment arms of each variable. For observational studies and meta-analyses, simply state that this is not applicable. -->
+
+Not applicable.
+
+
+## Measured variables
+<!-- Describe each variable that you will measure. This will include outcome measures, as well as any predictors or covariates that you will measure. You do not need to include any variables that you plan on collecting if they are not going to be included in the confirmatory analyses of this study. -->
+
+Not applicable.
+
+
+## Indices
+<!-- If any measurements are  going to be combined into an index (or even a mean), what measures will you use and how will they be combined? Include either a formula or a precise description of your method. If your are using a more complicated statistical method to combine measures (e.g. a factor analysis), you can note that here but describe the exact method in the analysis plan section. -->
+
+We will define different types of OA status (Green, Gold, Hybrid, Bronze, and Closed) as rules to use on the Unpaywall data.  
+
+Green is defined as "Available from an open repository". The Unpaywall rules for this are is_oa=True AND best_oa_host=repository.
+
+Gold is defined as "Published in an open access journal indexed in DOAJ". The Unpaywall rules for this are is_oa=True AND best_oa_host=publisher AND journal_is_oa=True.
+
+Hybrid is defined as "Published open access in a subscription-based journal under an open license". The Unpaywall rules for this are is_oa=True AND best_oa_host=publisher AND best_oa_license<>””(empty string/null).
+
+Bronze is defined as "Available to read on publisher’s site, without a license". The Unpaywall rules for this are is_oa=True AND best_oa_host=publisher AND best_oa_license=””(empty string/null).
+
+Closed is defined as "Not open access". The unpaywall rule for this is is_oa=False.
+
+
+# Design Plan
+<!-- In this section, you will be asked to describe the overall design of your study. Remember that this research plan is designed to register a single study, so if you have multiple experimental designs, please complete a separate preregistration. -->
+
+
+## Study type
+
+**Observational Study**. Data is collected from study subjects that are not randomly assigned to a treatment. This includes surveys, natural experiments, and regression discontinuity designs.
+
+
+## Blinding
+<!-- Blinding describes who is aware of the experimental manipulations within a study. Mark all that apply. -->
+
+Data will be collected by two of the authors. The affiliations and oainformation will be given codes. Then two of the other authors will analyze the data without being aware of the meaning of the codes.
+
+
+## Study design
+<!-- Describe your study design. Examples include two-group, factorial, randomized block, and repeated measures. Is it a between (unpaired), within-subject (paired), or mixed design? Describe any counterbalancing required. Typical study designs for observation studies include cohort, cross sectional, and case-control studies. -->
+
+This is an observational longitudinal study with a quasi-experimental design.  
+
+
+## Randomization
+<!-- If you are doing a randomized study, how will you randomize, and at what level? -->
+
+No.
+
+
+# Analysis Plan
+<!-- You may describe one or more confirmatory analysis in this section. Remember, all analyses specified in this section must be reported in the final article, and any additional analyses must be clearly labeled as exploratory or hypothesis generating in the final paper. A confirmatory analysis plan must state up front which variables are predictors (independent) and which are the outcomes (dependent), otherwise it is an exploratory analysis.
+
+You may describe exploratory analyses in this section, but a clear confirmatory analysis is required. An exploratory test is any test where a prediction is not made up front, or there are multiple possible tests that you are going to use. A statistically significant finding in an exploratory test is a great way to form a new confirmatory hypothesis, which could be registered at a later time.
+
+To help you keep track of multiple analyses, you may label each for your reference. -->
+
+## Descriptive analyses
+
+We will tabulate and plot the frequency and proportion of OA articles by funder and year.
+
+## Statistical models
+<!-- What statistical model(s) will you use to test your hypothesis(ses)? Please include the type of model (e.g. ANOVA, regression, SEM, etc.) as well as the specification of the model (this includes all variables that will be included as predictors, outcomes, or covariates). Refer to the *Hypotheses* section to relate each hypothesis to a statistical analysis. Please specify any interactions that will be tested and remember that any test not included here must be labeled as an exploratory test in your final article. -->
+
+We will use an interrupted time series model. OA status will be the outcome. Predictors will be presence of policy (yes/no) and time since introduction of policy. The analysis will be performed as in Hardwicke et al. 2017 (http://rsos.royalsocietypublishing.org/content/5/8/180448, R code available at https://osf.io/y2meu/. Thus, we will fit a general linear model with a logistic link function.
+
+
+## Transformations
+<!-- If you plan on transforming, centering, recoding the data, or will require a coding scheme for categorical variables, please describe that process. -->
+
+No.
+
+
+## Follow-up analyses
+<!-- If not specified previously, will you be conducting any confirmatory analyses to follow up on effects in your statistical model, such as subgroup analyses, pairwise or complex contrasts, or follow-up tests from interactions. Refer to the *Hypotheses* section to relate each hypothesis to a statistical analysis. Remember that any analyses not specified in this research plan must be noted as exploratory. -->
+
+Follow-up analyses will be made to investigate if the main result is different depending on affiliation (which university in Sweden). 
+
+
+## Inference criteria
+<!-- What criteria will you use to make inferences? Please describe the information you'll use (e.g. p-values, Bayes factors, specific model fit indices), as well as cut-off criterion, where appropriate. Will you be using one or two tailed tests for each of your analyses? If you are comparing multiple conditions or testing multiple hypotheses, will you account for this? -->
+
+Inferences will be based on p-values with alpha <. 05. Two-sided tests will be used so that inferences can be drawn if the introduction of open access mandates is associated with a decrease in open access publishing.
+Two data sources for bibliographic information will be used, Dimensions and Web of science. The data source with the best coverage (most articles with complete information for our variables) will be used as our primary data source and inferences will be drawn based on results from that data source if the results differ between the data sources.  
+
+
+## Data exclusion
+<!-- How will you determine what data or samples, if any, to exclude from your analyses? How will outliers be handled? -->
+
+No exclusion of data.
+
+
+## Missing data
+<!-- How will you deal with incomplete or missing data? -->
+
+The degree of missing data from the different data sources will be documented and reported. 
+
+
+
+## Assumptions (optional)
+<!-- If you are planning on testing the assumptions of the statistical tests included in your analysis plan, which assumptions will you test, how will you test them, what criteria will you use to make decisions based on that test, and what alternative statistical tests will you use? This may be an item where a decision tree could be helpful to plan and communicate the possibilities. -->
+
+There are several assumptions and limitations for our analysis. We list them here to show that we are aware of them, but we will not conduct any analyses to test the assumptions.
+
++ Not all articles are published in journals that is covered in Dimensions or Web of science. On the contrary, there is a rather large difference between academic fields. We are aware of this difference.
++ Some articles do not have doi:s. The share of articles with doi:s has risen over time. We assume that articles with doi:s follow the same pattern as articles without doi:s.
++ Some articles do not have funding information. 
++ We assume that articles incorrectly without funding information follow the same pattern as articles with funding information.
++ Most articles are co-authored. Our study will identify all articles with a Swedish corresponding author. It is plausible that research awarded to a Swedish researcher will in most cases have a Swedish corresponding author affiliation, but this will not always be the case.  
++ We assume that the affiliations are correct, i.e. that the words “Sweden” or "Sverige" are correctly used in affiliations.
++ OA status of articles can change over time. An article that was not OA when published can become OA later. The other way around is not plausible but this means that there is a bias towards OA in our data. The comparison group will however likely show the same effect.
+
+
+
+## Exploratory analyses (optional)
+<!-- If you plan to explore your data set to look for unexpected differences or relationships, you may describe those tests here. An exploratory test is any test where a prediction is not made up front, or there are multiple possible tests that you are going to use. A statistically significant finding in an exploratory test is a great way to form a new confirmatory hypothesis, which could be registered at a later time. -->
+
+No.
+
+
+## Analysis scripts (optional)
+<!-- The purpose of a fully commented analysis script is to unambiguously provide the responses to all of the questions raised in the analysis section. This step is not common, but we encourage you to try creating an analysis script, refine it using a modeled dataset, and use it in place of your written analysis plan.
+
+Upload an analysis script with clear comments. This optional step is helpful in order to create a process that is completely transparent and increase the likelihood that your analysis can be replicated. We recommend that you run the code on a simulated dataset in order to check that it will run without errors. -->
+
+TODO
+
+
+# Other
+
+## Other (Optional)
+<!-- If there is any additional information that you feel needs to be included in your preregistration, please enter it here. -->
+
+No.
+
+
+# References
+## 
+\vspace{-2pc}
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{-1in}
+\setlength{\parskip}{8pt}
+\noindent
+
+ <!-- @Manual{, -->
+ <!--    title = {roadoi: Find Free Versions of Scholarly Publications via Unpaywall}, -->
+ <!--    author = {Najko Jahn}, -->
+ <!--    year = {2018}, -->
+ <!--    note = {R package version 0.5.1}, -->
+ <!--    url = {https://CRAN.R-project.org/package=roadoi}, -->
+ <!--  } -->
